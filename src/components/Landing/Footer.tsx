@@ -3,12 +3,14 @@ import iconFacebook from "/assets/icon-facebook.svg";
 import iconTwitter from "/assets/icon-twitter.svg";
 import iconYoutube from "/assets/icon-youtube.svg";
 import iconInstagram from "/assets/icon-instagram.svg";
+import Subscribe from "./Subscribe";
 
 function Footer() {
     return (
         <div className="mt-60 pt-[218px] w-svw h-[420px] bg-[#8DD3BB]">
-            <div className="max-w-[1440px] mx-auto">
-                <div className="w-[87%] mx-auto flex flex-row justify-between">
+            <div className="relative max-w-[1440px] mx-auto">
+                <Subscribe className="absolute top-[-368px] left-0 right-0 mx-auto max-w-[87%] z-30" />
+                <div className="w-[80%] ml-[95px] flex flex-row justify-between">
                     <div>
                         <img src={logo} alt="" />
                         <div className="flex flex-row justify-between mt-6">
