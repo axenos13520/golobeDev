@@ -6,10 +6,12 @@ function SearchButton({
     className,
     type,
     name,
+    onClick = () => {},
 }: {
     className?: string;
     type: SearchType;
     name: string;
+    onClick?: () => void;
 }) {
     return (
         <button
@@ -17,6 +19,7 @@ function SearchButton({
                 "flex flex-row items-center h-12 px-4 bg-[#8DD3BB] rounded-md " +
                 className
             }
+            onClick={onClick}
         >
             {
                 [

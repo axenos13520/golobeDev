@@ -8,8 +8,13 @@ import SearchButton from "../SearchButton";
 import { SearchType } from "../features/search";
 import Reviews from "./Reviews";
 import Footer from "./Footer";
+import { useAppDispatch } from "../../app/hooks";
+import { openPage, Page } from "../../app/pageSlice";
+import { Theme } from "../features/icon";
 
 function Landing() {
+    const dispatch = useAppDispatch();
+
     return (
         <>
             <div className="max-w-[1440px] mx-auto">
@@ -22,7 +27,7 @@ function Landing() {
                     }}
                 >
                     <div className="absolute top-0 left-0 bottom-0 right-0 bg-gradient-to-b from-black opacity-50 rounded-xl"></div>
-                    <MainHeader />
+                    <MainHeader className="pt-6" theme={Theme.White} />
                     <div className="relative mt-20 mx-auto w-1/2 z-10 font-gothic font-extrabold text-center scale-x-125 leading-none">
                         <h3 className="text-[45px]">Helping Others</h3>
                         <h1 className="text-[80px] mt-5">{"LIVE & TRAVEL"}</h1>
@@ -52,6 +57,9 @@ function Landing() {
                                 className="mt-4 mx-auto text-black"
                                 type={SearchType.Flights}
                                 name="Show Flights"
+                                onClick={() => {
+                                    dispatch(openPage(Page.Main));
+                                }}
                             />
                         </div>
                     </div>
@@ -73,6 +81,9 @@ function Landing() {
                                 className="mt-4 mx-auto text-black"
                                 type={SearchType.Stays}
                                 name="Show Hotels"
+                                onClick={() => {
+                                    dispatch(openPage(Page.Main));
+                                }}
                             />
                         </div>
                     </div>

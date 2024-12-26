@@ -7,18 +7,20 @@ import { Icon, Theme } from "./features/icon";
 const icons = [iconPlane, iconBed, iconPlaneBlack, iconBedBlack];
 
 function NamedIcon({
+    className,
     iconIndex,
     text,
     themeIndex,
     margin = 4,
 }: {
+    className?: string;
     iconIndex: Icon;
     text: string;
     themeIndex: Theme;
     margin?: number;
 }) {
     return (
-        <div className="flex flex-row items-center">
+        <div className={"flex flex-row items-center " + className}>
             <img
                 className="w-[24px] h-[24px]"
                 style={{ marginRight: `${margin}px` }}
