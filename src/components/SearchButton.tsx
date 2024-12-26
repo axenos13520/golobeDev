@@ -1,5 +1,5 @@
-import iconFlights from "./assets/icon-flights.svg";
-import icomPlaces from "./assets/icon-places.svg";
+import iconFlights from "/assets/icon-flights.svg";
+import icomPlaces from "/assets/icon-places.svg";
 import { SearchType } from "./features/search";
 
 function SearchButton({

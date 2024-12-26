@@ -1,8 +1,8 @@
-import logo from "../assets/logo-dark.svg";
-import iconFacebook from "../assets/icon-facebook.svg";
-import iconTwitter from "../assets/icon-twitter.svg";
-import iconYoutube from "../assets/icon-youtube.svg";
-import iconInstagram from "../assets/icon-instagram.svg";
+import logo from "/assets/logo-dark.svg";
+import iconFacebook from "/assets/icon-facebook.svg";
+import iconTwitter from "/assets/icon-twitter.svg";
+import iconYoutube from "/assets/icon-youtube.svg";
+import iconInstagram from "/assets/icon-instagram.svg";
 
 function Footer() {
     return (

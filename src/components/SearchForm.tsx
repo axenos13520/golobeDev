@@ -1,9 +1,9 @@
 import SelectBox from "./SelectBox";
-import iconFromTo from "./assets/icon-from-to.svg";
-import iconArrow from "./assets/icon-arrow.svg";
-import iconBed from "./assets/icon-bed-black.svg";
-import iconCalendar from "./assets/icon-calendar.svg";
-import iconPerson from "./assets/icon-person.svg";
+import iconFromTo from "/assets/icon-from-to.svg";
+import iconArrow from "/assets/icon-arrow.svg";
+import iconBed from "/assets/icon-bed-black.svg";
+import iconCalendar from "/assets/icon-calendar.svg";
+import iconPerson from "/assets/icon-person.svg";
 import NamedIcon from "./NamedIcon";
 import { Icon, Theme } from "./features/icon";
 import { useState } from "react";

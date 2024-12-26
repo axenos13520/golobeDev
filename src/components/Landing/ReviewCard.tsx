@@ -1,5 +1,5 @@
-import iconStar from "../assets/icon-star.svg";
-import iconGoogle from "../assets/icon-google.svg";
+import iconStar from "/assets/icon-star.svg";
+import iconGoogle from "/assets/icon-google.svg";
 import { useState } from "react";
 
 function ReviewCard({

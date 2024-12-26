@@ -1,7 +1,7 @@
-import iconPlane from "./assets/icon-plane.svg";
-import iconBed from "./assets/icon-bed.svg";
-import iconPlaneBlack from "./assets/icon-plane-black.svg";
-import iconBedBlack from "./assets/icon-bed-black.svg";
+import iconPlane from "/assets/icon-plane.svg";
+import iconBed from "/assets/icon-bed.svg";
+import iconPlaneBlack from "/assets/icon-plane-black.svg";
+import iconBedBlack from "/assets/icon-bed-black.svg";
 import { Icon, Theme } from "./features/icon";
 
 const icons = [iconPlane, iconBed, iconPlaneBlack, iconBedBlack];

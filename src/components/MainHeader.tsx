@@ -1,4 +1,4 @@
-import logoImage from "./assets/logo.svg";
+import logoImage from "/assets/logo.svg";
 import { Icon, Theme } from "./features/icon";
 import NamedIcon from "./NamedIcon";
 
