@@ -2,6 +2,8 @@ import logoImage from "/assets/logo.svg";
 import logoDarkImage from "/assets/logo-feed.svg";
 import { Icon, Theme } from "./features/icon";
 import NamedIcon from "./NamedIcon";
+import { openPage, Page } from "../app/pageSlice";
+import { useAppDispatch } from "../app/hooks";
 
 const buttonTransition = "transition-colors duration-300 hover:bg-slate-100/30";
 
@@ -16,10 +18,12 @@ function MainHeader({
     activeTab?: number;
     setActiveTab?: (i: number) => void;
 }) {
+    const dispatch = useAppDispatch();
+
     return (
         <header
             className={
-                "relative grid grid-cols-3 px-8 w-full z-10 font-semibold text-[14px] " +
+                `relative grid grid-cols-3 w-full z-10 font-semibold text-[14px] ${theme === Theme.White ? "px-8 " : ""}` +
                 className
             }
         >
@@ -66,9 +70,10 @@ function MainHeader({
                 </button>
             </div>
             <img
-                className="m-auto"
+                className="m-auto cursor-pointer"
                 src={[logoImage, logoDarkImage][theme]}
                 alt="logo"
+                onClick={() => dispatch(openPage(Page.Landing))}
             />
             <div className="ml-auto my-auto">
                 <button

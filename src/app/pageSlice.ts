@@ -5,17 +5,19 @@ export enum Page {
     Main,
 }
 
-const endpoints = ["welcome", "feed"];
+const pages = ["welcome", "feed"];
 
 interface PageState {
     current: Page;
 }
 
-if (endpoints.indexOf(window.location.pathname.split("/").reverse()[0]) === -1)
-    history.replaceState(null, "", "/golobe/welcome");
+const initPage = new URLSearchParams(window.location.search).get("page");
+
+if (initPage === null || pages.indexOf(initPage) === -1)
+    history.replaceState(null, "", "/golobe/?page=welcome");
 
 export const pageFromUrl = () =>
-    window.location.pathname.split("/").reverse()[0] === "feed"
+    new URLSearchParams(window.location.search).get("page") === "feed"
         ? Page.Main
         : Page.Landing;
 
@@ -31,10 +33,18 @@ export const pageSlice = createSlice({
         openPage(state, action: PayloadAction<Page>) {
             if (state.current === action.payload) return;
 
-            history.pushState(null, "", `/golobe/${endpoints[action.payload]}`);
+            window.scrollTo(0, 0);
+
+            history.pushState(
+                null,
+                "",
+                `/golobe/?page=${pages[action.payload]}`,
+            );
             state.current = action.payload;
         },
         setPage(state, action: PayloadAction<Page>) {
+            window.scrollTo(0, 0);
+
             state.current = action.payload;
         },
     },

@@ -7,7 +7,7 @@ import Suggestions from "./Suggestions";
 import SearchButton from "../SearchButton";
 import { SearchType } from "../features/search";
 import Reviews from "./Reviews";
-import Footer from "./Footer";
+import Footer from "../Footer";
 import { useAppDispatch } from "../../app/hooks";
 import { openPage, Page } from "../../app/pageSlice";
 import { Theme } from "../features/icon";
@@ -35,7 +35,11 @@ function Landing() {
                             Special offers to suit your plan
                         </p>
                     </div>
-                    <SearchForm />
+                    <SearchForm
+                        className="p-6 absolute left-0 right-0 top-[80%] mx-auto w-11/12 bg-white rounded-xl shadow-lg shadow-slate-400/30 text-black"
+                        tabs={true}
+                        tab={0}
+                    />
                 </div>
                 <Suggestions className="w-[87%] mt-60 mx-auto" />
                 <div className="mt-20 w-[87%] mx-auto flex flex-row justify-between text-white">

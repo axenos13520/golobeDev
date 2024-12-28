@@ -6,7 +6,7 @@ import iconCalendar from "/assets/icon-calendar.svg";
 import iconPerson from "/assets/icon-person.svg";
 import NamedIcon from "./NamedIcon";
 import { Icon, Theme } from "./features/icon";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SearchButton from "./SearchButton";
 
 const names = [
@@ -19,46 +19,63 @@ const sizes = [
     [33, 21, 21, 21],
 ];
 
-function SearchForm() {
-    const [activeTab, setActiveTab] = useState(0);
+function SearchForm({
+    className,
+    tabs,
+    tab,
+}: {
+    className?: string;
+    tabs: boolean;
+    tab: number;
+}) {
+    const [activeTab, setActiveTab] = useState(tab);
+
+    useEffect(() => setActiveTab(tab), [tab]);
+
     return (
-        <div className="p-6 absolute left-0 right-0 top-[80%] mx-auto w-11/12 bg-white rounded-xl shadow-lg shadow-slate-400/30 text-black">
-            <div className="flex flex-row font-semibold">
-                <button
-                    className={
-                        "transition-colors duration-300 border-b-4 border-solid " +
-                        (activeTab === 1
-                            ? "border-transparent"
-                            : "border-emerald-200/70")
-                    }
-                    onClick={() => setActiveTab(0)}
-                >
-                    <NamedIcon
-                        iconIndex={Icon.Plane}
-                        text="Flights"
-                        themeIndex={Theme.Black}
-                        margin={8}
-                    />
-                </button>
-                <div className="mx-8 min-h-12 w-[1px] bg-slate-200"></div>
-                <button
-                    className={
-                        "transition-colors duration-300 border-b-4 border-solid " +
-                        (activeTab === 0
-                            ? "border-transparent"
-                            : "border-emerald-200/70")
-                    }
-                    onClick={() => setActiveTab(1)}
-                >
-                    <NamedIcon
-                        iconIndex={Icon.Bed}
-                        text="Stays"
-                        themeIndex={Theme.Black}
-                        margin={8}
-                    />
-                </button>
-            </div>
-            <div className="mt-12">
+        <div className={className}>
+            {tabs ? (
+                <div className="mb-12 flex flex-row font-semibold">
+                    <button
+                        className={
+                            "transition-colors duration-300 border-b-4 border-solid " +
+                            (activeTab === 1
+                                ? "border-transparent"
+                                : "border-emerald-200/70")
+                        }
+                        onClick={() => setActiveTab(0)}
+                    >
+                        <NamedIcon
+                            iconIndex={Icon.Plane}
+                            text="Flights"
+                            themeIndex={Theme.Black}
+                            margin={8}
+                        />
+                    </button>
+                    <div className="mx-8 min-h-12 w-[1px] bg-slate-200"></div>
+                    <button
+                        className={
+                            "transition-colors duration-300 border-b-4 border-solid " +
+                            (activeTab === 0
+                                ? "border-transparent"
+                                : "border-emerald-200/70")
+                        }
+                        onClick={() => setActiveTab(1)}
+                    >
+                        <NamedIcon
+                            iconIndex={Icon.Bed}
+                            text="Stays"
+                            themeIndex={Theme.Black}
+                            margin={8}
+                        />
+                    </button>
+                </div>
+            ) : (
+                <h3 className="mb-8 font-semibold text-xl text-green-950">
+                    Where are you flying?
+                </h3>
+            )}
+            <div>
                 <div className="flex flex-row justify-between h-14">
                     <SelectBox
                         className="ease-out transition-all duration-300 h-full"
