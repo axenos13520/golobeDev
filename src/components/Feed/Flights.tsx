@@ -28,23 +28,6 @@ function Flights() {
                     alt=""
                 />
             </div>
-            <div className="mt-20 mb-10 w-[1440px] mx-auto">
-                <div className="flex flex-row justify-between items-center w-[87%] mx-auto">
-                    <div>
-                        <h3 className="mb-2 font-semibold text-[32px]">
-                            Fall into travel
-                        </h3>
-                        <p className="w-[760px] opacity-70">
-                            {
-                                "Going somewhere to celebrate this season? Whether you’re going home or somewhere to roam, we’ve got the travel tools to get you to your destination."
-                            }
-                        </p>
-                    </div>
-                    <button className="px-4 py-2 border-2 border-solid border-emerald-200/70 rounded-md hover:bg-emerald-200 transition-colors duration-300">
-                        See All
-                    </button>
-                </div>
-            </div>
         </>
     );
 }
