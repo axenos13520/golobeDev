@@ -11,6 +11,7 @@ import Footer from "../Footer";
 import { useAppDispatch } from "../../app/hooks";
 import { openPage, Page } from "../../app/pageSlice";
 import { Theme } from "../features/icon";
+import { FeedTab, setFeedTab } from "../../app/feedSlice";
 
 function Landing() {
     const dispatch = useAppDispatch();
@@ -27,7 +28,14 @@ function Landing() {
                     }}
                 >
                     <div className="absolute top-0 left-0 bottom-0 right-0 bg-gradient-to-b from-black opacity-50 rounded-xl"></div>
-                    <MainHeader className="pt-6" theme={Theme.White} />
+                    <MainHeader
+                        className="pt-6"
+                        theme={Theme.White}
+                        setActiveTab={(i) => {
+                            dispatch(openPage(Page.Main));
+                            dispatch(setFeedTab(i));
+                        }}
+                    />
                     <div className="relative mt-20 mx-auto w-1/2 z-10 font-gothic font-extrabold text-center scale-x-125 leading-none">
                         <h3 className="text-[45px]">Helping Others</h3>
                         <h1 className="text-[80px] mt-5">{"LIVE & TRAVEL"}</h1>
@@ -63,6 +71,7 @@ function Landing() {
                                 name="Show Flights"
                                 onClick={() => {
                                     dispatch(openPage(Page.Main));
+                                    dispatch(setFeedTab(FeedTab.Flights));
                                 }}
                             />
                         </div>
@@ -87,6 +96,7 @@ function Landing() {
                                 name="Show Hotels"
                                 onClick={() => {
                                     dispatch(openPage(Page.Main));
+                                    dispatch(setFeedTab(FeedTab.Stays));
                                 }}
                             />
                         </div>
